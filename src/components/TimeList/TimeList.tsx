@@ -20,7 +20,7 @@ const TimeList = ({times, onDelete}: Props) => {
     return (
         <div className='row justify-content-center'>
             <table className="  table table-dark table-responsive numFont
-                                table-striped m-3 w-50 border border-2
+                                table-striped m-3 w-75 border border-2
                                 border-opacity-25 border-white ">
                 <thead>
                 <tr>

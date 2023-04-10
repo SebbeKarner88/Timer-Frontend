@@ -28,21 +28,21 @@ const StopWatch = ({SaveTime}: Props) => {
     return (
         <>
             <div className='row justify-content-center mt-2'>
-                <h1 className='text-center text-danger numFont text-opacity-75'>{calcTime(counter)}</h1>
+                <h1 className='text-center numFont text-opacity-75'>{calcTime(counter)}</h1>
             </div>
             <div>
                 <div className='text-center mt-2'>
                     {isCounting ?
                         <button onClick={() => setIsCounting(false)}
-                                className='btn btn-outline-danger numFont opacity-75 m-3 buttonsize'>STOP</button> :
+                                className='btn btn-outline-danger numFont opacity-75 m-3 buttonSize'>STOP</button> :
                         <button onClick={() => setIsCounting(true)}
-                                className='btn btn-outline-success numFont opacity-75 m-3 buttonsize'>START</button>
+                                className='btn btn-outline-success numFont opacity-75 m-3 buttonSize'>START</button>
                     }
-                    <button className='btn btn-outline-warning numFont opacity-75 m-3 buttonsize'
+                    <button className='btn btn-outline-warning numFont opacity-75 m-3 buttonSize'
                             onClick={() => setCounter(0)}>RESET
                     </button>
 
-                    <button className='btn btn-outline-primary numFont opacity-75 m-3 buttonsize'
+                    <button className='btn btn-outline-primary numFont opacity-75 m-3 buttonSize'
                             onClick={() => {
                                 SaveTime(0, counter);
                                 setCounter(0)
