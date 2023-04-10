@@ -19,17 +19,18 @@ const TimeList = ({times, onDelete}: Props) => {
 
     return (
         <div className='row justify-content-center'>
-            <table className="  table table-dark table-responsive numFont
-                                table-striped m-3 w-75 border border-2
+            <table className="  table table-dark numFont table-striped
+                                m-3 w-50 border border-2
                                 border-opacity-25 border-white ">
                 <thead>
                 <tr>
-                    <th className='text-center' colSpan={2}>Time</th>
+                    <th className='text-center' colSpan={2}>TIMES</th>
                 </tr>
                 </thead>
                 <tbody>
                 {times.map(time =>
-                    <tr key={time.id} className='text-center'>
+                    <tr key={time.id}
+                        className='text-end'>
                         <td>{calcTime(time.time)}</td>
                         <td>
                             <button
@@ -40,12 +41,13 @@ const TimeList = ({times, onDelete}: Props) => {
                         </td>
                     </tr>)}
                 </tbody>
-                <tfoot>
-                <tr className='text-center'>
-                    <td>{calcTime(times.reduce((acc, currentValue) =>
-                        currentValue.time + acc, 0))}
-                    </td>
-                    <td>Total</td>
+                <tfoot className='text-center text-warning'>
+                <tr>
+                    <td colSpan={2}>TOTAL</td>
+                </tr>
+                <tr>
+                    <td colSpan={2}>{calcTime(times.reduce((acc, currentValue) =>
+                        currentValue.time + acc, 0))}</td>
                 </tr>
                 </tfoot>
             </table>

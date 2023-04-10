@@ -3,7 +3,6 @@ import StopWatch from "./components/StopWatch/StopWatch";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import './App.css'
-import {boolean} from "zod";
 
 
 interface Time {
@@ -18,9 +17,9 @@ export const calcTime = (time: number) => {
     const hrs = Math.floor(totalMin / 60);
     const min = totalMin % 60;
 
-    if (hrs < 1 && min < 1) return 'S:' + sec;
-    if (hrs < 1) return 'M:' + min + ' S:' + sec;
-    return 'H:' + hrs + ' M:' + min + ' S:' + sec;
+    if (hrs < 1 && min < 1) return sec + ' s';
+    if (hrs < 1) return  min + ' m  :  ' + sec + ' s';
+    return hrs + ' h  :  ' + min + ' m  :  ' + sec + ' s';
 }
 
 function App() {
@@ -51,12 +50,12 @@ function App() {
     const SaveTime = (id: number, time: number) => {
 
         axios.post('http://localhost:8080/api/timer', {id, time})
-            .then(res => updateList())
+            .then(() => updateList())
             .catch((err) => setError(err.message));
     }
 
     return (
-        <div className='bg-black'>
+        <div>
             {error && <p className='text-danger text-center'>Could not complete Request <br/>|| {error} || <br/><br/>PLEASE
                 RELOAD PAGE</p>}
             <StopWatch SaveTime={(id, time) => SaveTime(id, time)}></StopWatch>
