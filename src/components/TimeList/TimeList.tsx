@@ -10,7 +10,7 @@ interface Time {
 
 interface Props {
     times: Time[],
-    onDelete: (id: number, time: number) => void;
+    onDelete: (id: number) => void;
 }
 
 const TimeList = ({times, onDelete}: Props) => {
@@ -35,7 +35,7 @@ const TimeList = ({times, onDelete}: Props) => {
                         <td>
                             <button
                                 className="btn btn-outline-danger"
-                                onClick={() => onDelete(time.id, time.time)}
+                                onClick={() => onDelete(time.id)}
                             >Delete
                             </button>
                         </td>

@@ -40,15 +40,13 @@ function App() {
     }, [storeTime])
 
     // DELETE FETCH
-    const DeleteTime = (id: number, time: number) => {
-
-        axios.post('http://localhost:8080/api/timer/del', {id, time})
+    const DeleteTime = (id: number) => {
+        axios.delete('http://localhost:8080/api/timer/del/' + id)
             .then(() => updateList())
             .catch((err) => setError(err.message));
     }
     // SAVE FETCH
     const SaveTime = (id: number, time: number) => {
-
         axios.post('http://localhost:8080/api/timer', {id, time})
             .then(() => updateList())
             .catch((err) => setError(err.message));
@@ -61,7 +59,7 @@ function App() {
             <StopWatch SaveTime={(id, time) => SaveTime(id, time)}></StopWatch>
             <br/>
             <TimeList
-                times={times} onDelete={(id, time) => DeleteTime(id, time)}></TimeList>
+                times={times} onDelete={(id) => DeleteTime(id)}></TimeList>
         </div>
     )
 }
