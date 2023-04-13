@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
 import './StopWatch.css'
-import {calcTime} from "../../App";
+import {calcTime} from '../../functions/CalcTime'
 import useCounter from "../../hooks/useCounter";
 
 interface Props {

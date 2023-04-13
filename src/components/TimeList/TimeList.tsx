@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
-import {calcTime} from "../../App";
+import {calcTime} from '../../functions/CalcTime';
 import './TimeList.css'
 
 interface Time {
